@@ -34,29 +34,29 @@ class Box(Point):
 class filled_Box(Box):
     def __init__(self, x1, y1, w, h, color, fillcolor):
         super().__init__(x1, y1, w, h, color)
-        self.fill_color = fillcolor
+        self.fillcolor = fillcolor
     
     def draw_action(self):
         turtle.fillcolor(self.fillcolor)
-        turtle.begin_fil()
+        turtle.begin_fill()
         Box.draw_action(self)
         turtle.end_fill()
 
 class Circle(Point):
-    def __init__(self, x1, y1, radius, fill_color):
-        super().__init__(x1, y1, fill_color)
+    def __init__(self, x1, y1, radius, fillcolor):
+        super().__init__(x1, y1, fillcolor)
         self.radius = radius
 
     def draw_action(self):
         turtle.circle(self.radius)
 
 class CircleFilled(Circle):
-    def __init__(self, x1, y1, radius, color, fill_color):
+    def __init__(self, x1, y1, radius, color, fillcolor):
         super().__init__(x1, y1, radius, color)
-        self.fill_color = fill_color
+        self.fillcolor = fillcolor
 
     def draw_action(self):
-        turtle.fill_color(self.fill_color)
+        turtle.fillcolor(self.fillcolor)
         turtle.begin_fill()
         Circle.draw_action(self)
         turtle.end_fill()
@@ -66,7 +66,7 @@ if __name__ == '__main__':
     b = Box(10,20, 50, 100, 'red')
     bf = filled_Box(-100, 20, 50, 100, 'yellow', 'blue')
     bf.draw()
-    c = CircleFilled(-300, 150, 50, 'black')
+    c = CircleFilled(-300, 150, 50, 'black', 'red')
     c.draw()
     cf = CircleFilled(-300, 150, 50, 'red', 'yellow')
     cf.draw()
